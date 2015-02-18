@@ -1,0 +1,22 @@
+form {
+  padding:10px;
+  text-align: center;
+}
+
+textarea {
+  width:400px;
+  height:300;
+  text-align: center;
+}
+
+input {
+  font-size: 1.25em;
+  display: block;
+  margin: 0 auto;
+}
+
+#result {
+  padding:10px;
+  text-align: center
+}
+

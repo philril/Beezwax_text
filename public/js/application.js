@@ -1,7 +1,32 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $('#result').css("display","none")
+  $('form').on('submit', function(event){
+    event.preventDefault();
+    console.log("submitted")
+    var input = $(this).serialize()
+    $.ajax({
+      type: 'post',
+      url: 'spaces',
+      data: input
+    }).done(function(response){
+      console.log(response)
+      $('#result').css("display","block")
+      $('#output').html(response['output'])
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+      $('#added').html(response['spaces_added']['count'])
+      $('#added_loc').html(print(response['spaces_added']['index']))
+
+      $('#removed').html(response['spaces_removed']['count']);
+      $('#removed_loc').html(print(response['spaces_removed']['index']))
+    })
+  })
+
+  function print(arr) {
+    var str = ""
+    for (i=0;i<arr.length;i++) {
+      str += (arr[i] + ",")
+    }
+    return str.slice(0,-1)
+  }
+
 });
