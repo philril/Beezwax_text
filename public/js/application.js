@@ -6,7 +6,7 @@ $(document).ready(function() {
     var input = $(this).serialize()
     $.ajax({
       type: 'post',
-      url: 'spaces',
+      url: '/spaces',
       data: input
     }).done(function(response){
       console.log(response)
