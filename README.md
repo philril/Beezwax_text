@@ -1,1 +1,1 @@
-Beezwax text modification code exercise
+Quick coding exercise with text modification algorithm and full front-end.
